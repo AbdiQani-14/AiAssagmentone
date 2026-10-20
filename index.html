@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama's Kitchen | Homemade Goodness</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #fffaf3;
+            color: #30251f;
+            line-height: 1.6;
+        }
+        
+         :root {
+            --orange: #f47735;
+            --dark: #30251f;
+            --cream: #fffaf3;
+            --green: #496b42;
+            --light-orange: #fff0e5;
+        }
+        /* Header */
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 15px #0000000c;
+        }
+        
+        .logo {
+            font-size: 27px;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        
+        .logo span {
+            color: var(--dark);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--orange);
+        }
+        
+        .nav-btn {
+            background: var(--orange);
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 25px;
+        }
+        /* Hero */
+        
+        .hero {
+            min-height: 570px;
+            padding: 70px 8%;
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            background: var(--light-orange);
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .tag {
+            display: inline-block;
+            color: var(--green);
+            background: #e4eddc;
+            padding: 7px 15px;
+            border-radius: 25px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1.12;
+            margin-bottom: 22px;
+        }
+        
+        .hero h1 span {
+            color: var(--orange);
+        }
+        
+        .hero p {
+            color: #71645c;
+            max-width: 480px;
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--orange);
+            color: white;
+            padding: 14px 27px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #d95d22;
+            transform: translateY(-3px);
+        }
+        
+        .hero-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 45% 45% 20px 20px;
+            box-shadow: 0 15px 35px #5a301c20;
+        }
+        
+        .image-badge {
+            position: absolute;
+            bottom: 20px;
+            left: -20px;
+            background: white;
+            border-radius: 15px;
+            padding: 14px 20px;
+            box-shadow: 0 5px 20px #00000015;
+            font-weight: bold;
+        }
+        
+        .image-badge span {
+            color: var(--orange);
+        }
+        /* General sections */
+        
+        section {
+            padding: 85px 8%;
+        }
+        
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        
+        .section-heading small {
+            color: var(--orange);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+        
+        .section-heading h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+        
+        .section-heading p {
+            color: #796e65;
+            margin-top: 10px;
+        }
+        /* About */
+        
+        .about {
+            display: flex;
+            align-items: center;
+            gap: 65px;
+            background: white;
+        }
+        
+        .about-image,
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 370px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+        
+        .about-content h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin: 12px 0 20px;
+        }
+        
+        .about-content h2 span {
+            color: var(--orange);
+        }
+        
+        .about-content p {
+            color: #796e65;
+            margin-bottom: 18px;
+        }
+        
+        .about-label {
+            color: var(--green);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+        /* Menu */
+        
+        .menu {
+            background: var(--cream);
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+        
+        .menu-card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px #00000008;
+            transition: 0.3s;
+        }
+        
+        .menu-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 25px #00000012;
+        }
+        
+        .menu-card img {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .menu-info {
+            padding: 22px;
+        }
+        
+        .menu-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .menu-title h3 {
+            font-size: 19px;
+        }
+        
+        .price {
+            color: var(--orange);
+            font-size: 18px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+        
+        .menu-info p {
+            color: #796e65;
+            font-size: 14px;
+        }
+        /* Call to action */
+        
+        .cta {
+            margin: 0 8% 80px;
+            padding: 55px 25px;
+            background: var(--green);
+            color: white;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 34px;
+            margin-bottom: 12px;
+        }
+        
+        .cta p {
+            margin-bottom: 25px;
+            color: #e7eee2;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--green);
+        }
+        /* Footer */
+        
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 8% 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 35px;
+            padding-bottom: 35px;
+        }
+        
+        .footer-brand h2 {
+            color: var(--orange);
+            margin-bottom: 12px;
+        }
+        
+        footer p,
+        footer a {
+            color: #d0c5bd;
+            font-size: 14px;
+        }
+        
+        footer h3 {
+            margin-bottom: 15px;
+        }
+        
+        footer a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+        
+        footer a:hover {
+            color: var(--orange);
+        }
+        
+        .copyright {
+            border-top: 1px solid #ffffff20;
+            padding-top: 20px;
+            text-align: center;
+        }
+        /* Responsive design */
+        
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+            }
+            .hero-content,
+            .hero-image {
+                width: 100%;
+            }
+            .hero-image img {
+                height: 350px;
+            }
+            .about {
+                flex-direction: column;
+            }
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 18px 5%;
+            }
+            nav {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            nav a {
+                font-size: 13px;
+            }
+            .nav-btn {
+                padding: 8px 12px;
+            }
+            .hero {
+                padding: 55px 6%;
+            }
+            .hero-image img {
+                height: 280px;
+            }
+            section {
+                padding: 60px 6%;
+            }
+            .section-heading h2,
+            .about-content h2 {
+                font-size: 30px;
+            }
+            .menu-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-badge {
+                left: 10px;
+            }
+            .cta {
+                margin: 0 6% 55px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <a href="#home" class="logo" style="text-decoration:none;">
+            Mama's <span>Kitchen.</span>
+        </a>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#contact" class="nav-btn">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <span class="tag">❤️ Made with Love</span>
+
+            <h1>
+                Fresh Food,<br>
+                <span>Happy Hearts.</span>
+            </h1>
+
+            <p>
+                Welcome to Mama's Kitchen, where every meal feels like home. Enjoy delicious homemade dishes made with fresh ingredients and a whole lot of love.
+            </p>
+
+            <a href="#menu" class="btn">Explore Our Menu →</a>
+        </div>
+
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=85" alt="Fresh, colorful food served in a bowl">
+
+            <div class="image-badge">
+                🍽️ Fresh Daily <span>• Quality Food</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=85" alt="A warm and welcoming kitchen">
+        </div>
+
+        <div class="about-content">
+            <span class="about-label">Our Story</span>
+
+            <h2>
+                Cooking with love,<br>
+                <span>serving with joy.</span>
+            </h2>
+
+            <p>
+                At Mama's Kitchen, we believe good food brings people together. Inspired by traditional family recipes, we prepare every dish with care, fresh ingredients, and flavors you'll remember.
+            </p>
+
+            <p>
+                Whether you're enjoying lunch with friends or sharing dinner with family, there's always a place for you at our table.
+            </p>
+
+            <a href="#menu" class="btn">Discover Our Food</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="section-heading">
+            <small>Our Specialties</small>
+            <h2>Explore Our Menu 🍴</h2>
+            <p>Delicious favorites prepared fresh just for you.</p>
+        </div>
+
+        <div class="menu-grid">
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=700&q=80" alt="Fresh vegetable salad">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Garden Fresh Salad</h3>
+                        <span class="price">$8</span>
+                    </div>
+                    <p>Crisp greens, fresh vegetables, and our special house dressing.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=80" alt="Delicious homemade pizza">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Classic Pizza</h3>
+                        <span class="price">$12</span>
+                    </div>
+                    <p>Golden crust, melted cheese, rich tomato sauce, and fresh toppings.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80" alt="Juicy gourmet burger">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Mama's Burger</h3>
+                        <span class="price">$10</span>
+                    </div>
+                    <p>A juicy burger with fresh lettuce, tomato, cheese, and sauce.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=700&q=80" alt="Freshly baked pizza with toppings">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Cheese Special</h3>
+                        <span class="price">$11</span>
+                    </div>
+                    <p>Our cheesy favorite baked until golden and full of flavor.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="A colorful healthy rice bowl">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Healthy Rice Bowl</h3>
+                        <span class="price">$9</span>
+                    </div>
+                    <p>A hearty bowl of rice, vegetables, herbs, and delicious spices.</p>
+                </div>
+            </article>
+
+            <article class="menu-card">
+                <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=700&q=80" alt="Sweet ice cream dessert">
+
+                <div class="menu-info">
+                    <div class="menu-title">
+                        <h3>Sweet Ice Cream</h3>
+                        <span class="price">$5</span>
+                    </div>
+                    <p>A creamy, refreshing dessert to make your meal extra special.</p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="cta">
+        <h2>Good Food. Good Mood. ❤️</h2>
+        <p>Come hungry, leave happy. We'd love to serve you!</p>
+        <a href="#contact" class="btn">Get in Touch →</a>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <h2>Mama's Kitchen.</h2>
+                <p>
+                    Homemade goodness, fresh ingredients, and unforgettable flavors — served with love.
+                </p>
+            </div>
+
+            <div>
+                <h3>Quick Links</h3>
+                <a href="#home">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#menu">Our Menu</a>
+            </div>
+
+            <div>
+                <h3>Contact Us</h3>
+                <p>📍 Main Street, Hargeisa</p>
+                <p>📞 +252 63 0000000</p>
+                <p>✉️ hello@mamaskitchen.com</p>
+                <p>🕒 Every day: 8 AM – 10 PM</p>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 Mama's Kitchen. Made with ❤️ and fresh ingredients.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
