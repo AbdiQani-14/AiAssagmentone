@@ -6,19 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mama's Kitchen | Homemade Goodness</title>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #fffaf3;
-            color: #30251f;
-            line-height: 1.6;
         }
         
          :root {
@@ -28,7 +24,14 @@
             --green: #496b42;
             --light-orange: #fff0e5;
         }
-        /* Header */
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        /* HEADER */
         
         header {
             display: flex;
@@ -46,6 +49,7 @@
             font-size: 27px;
             font-weight: 800;
             color: var(--orange);
+            text-decoration: none;
         }
         
         .logo span {
@@ -75,7 +79,7 @@
             padding: 11px 20px;
             border-radius: 25px;
         }
-        /* Hero */
+        /* HERO */
         
         .hero {
             min-height: 570px;
@@ -86,8 +90,10 @@
             background: var(--light-orange);
         }
         
-        .hero-content {
+        .hero-content,
+        .hero-image {
             flex: 1;
+            min-width: 0;
         }
         
         .tag {
@@ -107,7 +113,8 @@
             margin-bottom: 22px;
         }
         
-        .hero h1 span {
+        .hero h1 span,
+        .about-content h2 span {
             color: var(--orange);
         }
         
@@ -135,7 +142,6 @@
         }
         
         .hero-image {
-            flex: 1;
             position: relative;
         }
         
@@ -161,7 +167,7 @@
         .image-badge span {
             color: var(--orange);
         }
-        /* General sections */
+        /* GENERAL SECTIONS */
         
         section {
             padding: 85px 8%;
@@ -188,7 +194,7 @@
             color: #796e65;
             margin-top: 10px;
         }
-        /* About */
+        /* ABOUT */
         
         .about {
             display: flex;
@@ -200,6 +206,7 @@
         .about-image,
         .about-content {
             flex: 1;
+            min-width: 0;
         }
         
         .about-image img {
@@ -215,10 +222,6 @@
             margin: 12px 0 20px;
         }
         
-        .about-content h2 span {
-            color: var(--orange);
-        }
-        
         .about-content p {
             color: #796e65;
             margin-bottom: 18px;
@@ -231,7 +234,7 @@
             letter-spacing: 2px;
             font-size: 13px;
         }
-        /* Menu */
+        /* MENU */
         
         .menu {
             background: var(--cream);
@@ -290,7 +293,7 @@
             color: #796e65;
             font-size: 14px;
         }
-        /* Call to action */
+        /* CALL TO ACTION */
         
         .cta {
             margin: 0 8% 80px;
@@ -315,7 +318,7 @@
             background: white;
             color: var(--green);
         }
-        /* Footer */
+        /* FOOTER */
         
         footer {
             background: var(--dark);
@@ -349,10 +352,60 @@
             display: block;
             text-decoration: none;
             margin-bottom: 8px;
+            transition: 0.3s;
         }
         
         footer a:hover {
             color: var(--orange);
+        }
+        /* SOCIAL PROFILE LINKS */
+        
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            margin: 0;
+            border: 1px solid #ffffff30;
+            border-radius: 50%;
+            color: white;
+            font-size: 19px;
+            transition: 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--orange);
+            border-color: var(--orange);
+            color: white;
+            transform: translateY(-4px);
+        }
+        
+        .social-links .whatsapp:hover {
+            background: #25d366;
+            border-color: #25d366;
+        }
+        
+        .social-links .instagram:hover {
+            background: #e4405f;
+            border-color: #e4405f;
+        }
+        
+        .social-links .linkedin:hover {
+            background: #0a66c2;
+            border-color: #0a66c2;
+        }
+        
+        .social-links .facebook:hover {
+            background: #1877f2;
+            border-color: #1877f2;
         }
         
         .copyright {
@@ -360,7 +413,7 @@
             padding-top: 20px;
             text-align: center;
         }
-        /* Responsive design */
+        /* TABLET RESPONSIVE */
         
         @media (max-width: 900px) {
             .hero {
@@ -379,7 +432,14 @@
             .menu-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-brand {
+                grid-column: 1 / -1;
+            }
         }
+        /* MOBILE RESPONSIVE */
         
         @media (max-width: 600px) {
             header {
@@ -388,7 +448,7 @@
                 padding: 18px 5%;
             }
             nav {
-                gap: 15px;
+                gap: 12px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
@@ -400,6 +460,13 @@
             }
             .hero {
                 padding: 55px 6%;
+                gap: 35px;
+            }
+            .hero h1 {
+                font-size: 42px;
+            }
+            .hero p {
+                font-size: 15px;
             }
             .hero-image img {
                 height: 280px;
@@ -415,11 +482,26 @@
             .footer-grid {
                 grid-template-columns: 1fr;
             }
+            .footer-brand {
+                grid-column: auto;
+            }
             .image-badge {
                 left: 10px;
+                font-size: 13px;
             }
             .cta {
                 margin: 0 6% 55px;
+                padding: 40px 20px;
+            }
+            .cta h2 {
+                font-size: 27px;
+            }
+            .social-links {
+                gap: 10px;
+            }
+            .social-links a {
+                width: 42px;
+                height: 42px;
             }
         }
     </style>
@@ -427,9 +509,9 @@
 
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
-        <a href="#home" class="logo" style="text-decoration:none;">
+        <a href="#home" class="logo">
             Mama's <span>Kitchen.</span>
         </a>
 
@@ -441,7 +523,7 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
             <span class="tag">❤️ Made with Love</span>
@@ -467,7 +549,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ABOUT SECTION -->
     <section class="about" id="about">
         <div class="about-image">
             <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=900&q=85" alt="A warm and welcoming kitchen">
@@ -493,7 +575,7 @@
         </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- MENU SECTION -->
     <section class="menu" id="menu">
         <div class="section-heading">
             <small>Our Specialties</small>
@@ -578,22 +660,56 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- CALL TO ACTION -->
     <div class="cta">
         <h2>Good Food. Good Mood. ❤️</h2>
         <p>Come hungry, leave happy. We'd love to serve you!</p>
         <a href="#contact" class="btn">Get in Touch →</a>
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER AND PROFILE LINKS -->
     <footer id="contact">
         <div class="footer-grid">
 
             <div class="footer-brand">
                 <h2>Mama's Kitchen.</h2>
+
                 <p>
                     Homemade goodness, fresh ingredients, and unforgettable flavors — served with love.
                 </p>
+
+                <h3 style="margin-top: 20px;">Follow Our Profile</h3>
+
+                <div class="social-links" aria-label="Social media profile links">
+
+                    <!-- Beddel yourusername username-kaaga dhabta ah -->
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/yourusername/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram" class="instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook" class="facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/yourusername/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" class="linkedin">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+
+                    <!-- Ku beddel lambarkaaga WhatsApp -->
+                    <a href="https://wa.me/252630000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp" class="whatsapp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <!-- Ku beddel email-kaaga -->
+                    <a href="mailto:hello@mamaskitchen.com" aria-label="Email" title="Email">
+                        <i class="fa-regular fa-envelope"></i>
+                    </a>
+
+                </div>
             </div>
 
             <div>
@@ -606,10 +722,10 @@
             <div>
                 <h3>Contact Us</h3>
                 <p>📍 Main Street, Hargeisa</p>
-                <p>📞 +252 63 0000000</p>
+                <p>📞 +252 63 48999123</p>
                 <p>✉️ hello@mamaskitchen.com</p>
                 <p>🕒 Every day: 8 AM – 10 PM</p>
-            </div>
+            </div>s
 
         </div>
 
